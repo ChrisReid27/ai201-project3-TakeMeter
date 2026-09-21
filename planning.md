@@ -1,14 +1,17 @@
 # **TakeMeter planning.md**
 
 ## Community
-The community I chose was r/ariheads from Reddit, and specifically chose threads discussing Ariana Grande's latest album, titled *Petal*. The initial posts I gathered were "Petal is rly sad", "Petal is her best work", and "Your honest opinion on petal". I chose this community because I know that Petal was devisive among her fanbase (which I'm a part of) and that there would be varied opinions and types of comments surrounding the album.
+The community I chose was **r/ariheads** from Reddit, and specifically chose threads discussing Ariana Grande's latest album, titled *Petal*. I chose this community because I know that Petal was devisive among her fanbase (which I'm a part of) and that there would be varied opinions and types of comments surrounding the album.
 
 ## Labels
 I have four labels: Experience, Analysis, Praise, Critical.
 
 The `experience` will denote personal experience with the music like anecdotes or places where the music was listened to by a person. Also when the comments have people where they relate the music to their own or others lives.
+
 The `descriptive` label will denote when the users are describing the music like with emotions or analyzing the music. This includes comments where specific tracks are listed off, relating the music to what the public knows about Ariana, the technical side of how the music was made like production and lyrics, as well as describing the vibe of the music (is it sad, dark, expressive, etc.).
+
 The `critical` label will denote comments where people point out their issues with the album, and encompass the comments where people do not like it and explain why.
+
 The `approval` label will be for comments that are praising, complimenting, and enjoying the album. This includes people who are celebrating and praising the work and ones where they explain why.
 
 **Experience Examples:**
@@ -31,9 +34,13 @@ The `approval` label will be for comments that are praising, complimenting, and 
 - "It is 100% one of her top 3 albums. Every single song is so so good. I cant pick a favorite. They’re all so perfect. I love everything about it."
 - Unsure example: "I’ve been a casual listener for a long time. Always respected her vocal and comedic abilities, featured her in some playlists, but never made an effort to listen to her albums start to finish for whatever reason. Eternal Sunshine and Petal I listened to start to finish multiple times and I watched the music videos. They feel much more emotionally raw, grounded, and cohesive. I really like the direction she’s taken in her music lately and I respect that artistically" This is a user who approves of the recent album but also describes it as raw, grounded and cohesive, whcih could make it belong under descriptive.
 
+**Post AI Consulation**
+I asked Copilot about my labels and for potentially more sufficient labeling ideas. Like I thought, it told me that `descriptive`, `approval`, and `critical` have a lot of overlap. It suggested `Personal Response`, `Interpretation & Analysis`, `Positive Evaluation`, and `Mixed to Negative Evaluation`. I agree with these suggestions since they allow for more comments to be less ambiguous even if they still have some overlap.
+
 ## Hard Edge Cases
 
 ## Data Collection Plan
+The initial posts I gathered were *"Petal is rly sad"*, *"Petal is her best work"*, and *"Your honest opinion on petal"*. If a label is underrepresented I'll have to get another thread that I think will mostly contain comments that can fufill what's missing.
 
 ## Evaluation Metrics
 
