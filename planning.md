@@ -5,12 +5,12 @@ The community I chose was r/ariheads from Reddit, and specifically chose threads
 
 ## Labels
 I have four labels: Experience, Analysis, Praise, Critical.
----
-The `expereience` will denote personal experience with the music like anecdotes or places where the music was listened to by a person. Also when the comments have people where they relate the music to their own or others lives.
+
+The `experience` will denote personal experience with the music like anecdotes or places where the music was listened to by a person. Also when the comments have people where they relate the music to their own or others lives.
 The `descriptive` label will denote when the users are describing the music like with emotions or analyzing the music. This includes comments where specific tracks are listed off, relating the music to what the public knows about Ariana, the technical side of how the music was made like production and lyrics, as well as describing the vibe of the music (is it sad, dark, expressive, etc.).
 The `critical` label will denote comments where people point out their issues with the album, and encompass the comments where people do not like it and explain why.
 The `approval` label will be for comments that are praising, complimenting, and enjoying the album. This includes people who are celebrating and praising the work and ones where they explain why.
----
+
 **Experience Examples:**
 - "Same here! I wonder how it would feel to experience this album without that element of resonating with the pain and themes. It actually made me reflect a little because the feelings it evoked should not have felt so normal to me 😭😭"
 - "Yeah. I feel like I understand her. This album has definitely moved me to tears, in the context of her life, and in the context of my own life. Im pretty sure thats hella parasocial tho."
