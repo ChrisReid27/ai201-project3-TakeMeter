@@ -41,10 +41,10 @@ function Flush-Pending {
 }
 
 for ($index = 0; $index -lt $rows.Count; $index++) {
-    $value = [string]$rows[$index].TEXT
+    $value = [string]$rows[$index].Text
     if (Test-Artifact $value) { continue }
 
-    $nextValue = if ($index + 1 -lt $rows.Count) { [string]$rows[$index + 1].TEXT } else { '' }
+    $nextValue = if ($index + 1 -lt $rows.Count) { [string]$rows[$index + 1].Text } else { '' }
     $isTimestamp = $value.Trim() -match '^\u2022.* ago$'
     $isAuthor = -not [string]::IsNullOrWhiteSpace($value) -and $nextValue.Trim() -match '^\u2022.* ago$'
     $isScore = $value.Trim() -match '^-?\d+$'
