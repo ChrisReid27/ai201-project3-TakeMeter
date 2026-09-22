@@ -35,6 +35,7 @@ The `approval` label will be for comments that are praising, complimenting, and 
 - Unsure example: "I’ve been a casual listener for a long time. Always respected her vocal and comedic abilities, featured her in some playlists, but never made an effort to listen to her albums start to finish for whatever reason. Eternal Sunshine and Petal I listened to start to finish multiple times and I watched the music videos. They feel much more emotionally raw, grounded, and cohesive. I really like the direction she’s taken in her music lately and I respect that artistically" This is a user who approves of the recent album but also describes it as raw, grounded and cohesive, whcih could make it belong under descriptive.
 
 **Post AI Consulation**
+
 I asked Copilot about my labels and for potentially more sufficient labeling ideas. Like I thought, it told me that `descriptive`, `approval`, and `critical` have a lot of overlap. It suggested `Personal Response`, `Interpretation & Analysis`, `Positive Evaluation`, and `Mixed to Negative Evaluation`. I agree with these suggestions since they allow for more comments to be less ambiguous even if they still have some overlap.
 
 ## Hard Edge Cases
