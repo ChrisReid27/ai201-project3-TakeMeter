@@ -62,7 +62,7 @@ If the agent achieves strong performance in the macro f1 and per-label precision
 
 	  This is a short boundary case because relating to the pain supports Personal Response, while describing the album as dark supports Interpretation & Analysis. The agent should identify which part is the primary purpose of the comment and note the uncertainty caused by the other part.
 
-    Manual classification: personal response
+    Manual classification: **Personal Response**
 
   2. **Personal Response / Interpretation & Analysis**
 
@@ -70,7 +70,7 @@ If the agent achieves strong performance in the macro f1 and per-label precision
 
 	  The phrase “I’ve experienced in my life” is a direct personal response, but the comment also analyzes the album’s portrayal of despair, hope, and resilience.
 
-    Manual classification: personal response
+    Manual classification: **Personal Response**
 
   3. **Personal Response / Positive Evaluation**
 
@@ -78,7 +78,7 @@ If the agent achieves strong performance in the macro f1 and per-label precision
 
 	  The listening anecdote supports Personal Response, while calling the album cathartic is a positive evaluation. The sadness also makes this useful for testing whether the agent mistakes an emotional reaction for criticism.
     
-    Manual classification: personal response
+    Manual classification: **Personal Response**
 
   4. **Personal Response / Positive Evaluation**
 
@@ -86,7 +86,7 @@ If the agent achieves strong performance in the macro f1 and per-label precision
 
 	  The commute routine and repeated listening support Personal Response, while the interpretation of the album and the enthusiastic ranking support Positive Evaluation. The “skip” comment adds a small negative element without making Mixed to Negative Evaluation clearly dominant.
 
-    Manual classification: positive evaluation
+    Manual classification: **Positive Evaluation**
 
   5. **Interpretation & Analysis / Positive Evaluation**
 
@@ -94,7 +94,7 @@ If the agent achieves strong performance in the macro f1 and per-label precision
 
 	  The comment analyzes the album’s themes and relationship to Eternal Sunshine, but it also includes personal history and a positive or sympathetic response to the album’s artistic expression. The agent must decide whether the analysis or personal reaction is central.
 
-    Manual classification: interpretation & analysis
+    Manual classification: **Interpretation & Analysis**
 
   6. **Interpretation & Analysis / Positive Evaluation**
 
@@ -102,7 +102,7 @@ If the agent achieves strong performance in the macro f1 and per-label precision
 
 	  Describing the albums as “emotionally raw, grounded, and cohesive” is analysis, while “I really like” and “I respect” are clear positive evaluation. The listening history is personal context but is not necessarily the main label.
 
-    Manual classification: positive evaluation
+    Manual classification: **Positive Evaluation**
 
   7. **Positive Evaluation / Mixed to Negative Evaluation**
 
@@ -110,7 +110,7 @@ If the agent achieves strong performance in the macro f1 and per-label precision
 
 	  This is the clearest mixed-sentiment case. It contains extensive praise, but also disappointment, disliked songs, and specific criticism of the vocals and replay value. The stress test is whether the agent explains why one label is dominant rather than simply counting positive and negative words.
 
-    Manual classification: mixed to negative evaluation
+    Manual classification: **Mixed to Negative Evaluation**
 
   8. **Positive Evaluation / Mixed to Negative Evaluation**
 
@@ -118,16 +118,18 @@ If the agent achieves strong performance in the macro f1 and per-label precision
 
 	  “Bottom half” is a negative evaluation, but the comment strongly qualifies that judgment by calling the album another artist’s best work. This tests whether the agent can recognize a positive-leaning mixed opinion rather than automatically assigning Mixed to Negative Evaluation.
 
-    Manual classification: Mixed to negative evaluation
+    Manual classification: **Mixed to Negative evaluation**
     
     **Conclusion**
 
     Out of eight stress test random ambiguous comment examples, seven were clear to place. The only one that made me a longer pause was number 6 because the poster used three diffrent describing words: raw, grounded, cohesive. But the sentence after that is back to being approving and affirming of the album so it belongs mainly under the positive evaluation label.
 
 - Annotation Assistance:
+
     I will be annotating myself, but will ask copilot for certain comments that I find particulary hard to place.
 
 - Failure Analysis:
+
     I'll give copilot/claude any recorded mistakes my agent makes in labeling, explanations, and the other success metrics. I'll ask copilot to look for patterns within the given compiled errors record. Error records would include when the agent gets the labels for a comment wrong or mixes them up, failures to recognize ambiguity, explanations are weak, hallucinations, or repeated consistency failures. Pattern recognition process: Each mistake would be recorded with the comment, my label, the agent's predicted label, its explanation, and my reason why the prediction is wrong. This compiled error records list would get given to copilot with the following questions:
         - Which labels get confused the most for another?
         - Are errors more common in short or long comments?
