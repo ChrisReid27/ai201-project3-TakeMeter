@@ -42,17 +42,25 @@ I have four new labels: Personal Response, Interpretation & Analysis, Positive E
 
 The `Personal Response` label will denote comments that focus primarily on the user's own emotional reaction, lived experience, relationship to the music, or listening habits. This includes relating the album to personal hardship, describing how it affected them, and sharing anecdotes such as listening to it during a commute or seeing it performed live.
 
+Example: "same, i'm going through a ton of shit right now no normal person should be expected to shoulder. yet, we are. and here's petal to listen to"
+
 The `Interpretation & Analysis` label will denote comments that explain, describe, or interpret the album beyond simply stating whether the user likes it. This includes discussing themes, lyrics, specific songs, production, vocal choices, influences, artistic intent, the artist's relationship with the public, and comparisons with other albums or artists.
+
+Example: "It’s sad, but hopeful, and there’s a kind of enlightenment in it—a sense of self-realization. It definitely sounds like she’s been through a lot, but to me it also feels like someone setting boundaries and finding her footing again. There’s a real resilience to it. I enjoy and appreciate the album for that."
 
 The `Positive Evaluation` label will denote comments that express an overall favorable judgment of the album, its songs, or its artistry. This includes praise, enjoyment, appreciation, enthusiastic recommendations, claims that the album is among the artist's best, and positive comments that contain minor reservations but remain clearly approving overall.
 
+Example: "I absolutely love this album 🥺 it hurts to see people shitting on it"
+
 The `Mixed to Negative Evaluation` label will denote comments that express a substantially qualified, unfavorable, or disappointed judgment of the album. This includes dislike, underwhelming reactions, low rankings, skips, comparisons that place the album below other work, and specific criticism of its lyrics, vocals, production, structure, or replay value. Comments with both praise and criticism belong here when the criticism is substantial or is the dominant overall assessment.
+
+Example: "Petal on its own is sadly one of my least favourite projects of her BUT the live recordings gave it the spark that it was missing. Even to this day when I try to play stay or like i do in their studio recordings, I end up feeling super underwhelmed, whereas I absolutely adore them in the live album. Had she decided to (re)record it with the added grit, power and the additional adlibs and melodic changes, I think it could have been in my top 5 projects of her."
 
 ## Hard Edge Cases
 Posts that contain both positive and negative elements will usually be ambiguous. That is why the new 4th label is mixed-negative together, still some comments might be really positive about the album and talk about its pros more than its cons. When annotating, before putting those type of postive leaning comments in the mixed-negative label group, I'd have to see if the ratio between positive and negative feelings expressed in the comments justifies its position.
 
 ## Data Collection Plan
-The initial posts I gathered were *"Petal is rly sad"*, *"Petal is her best work"*, and *"Your honest opinion on petal"*. If a label is underrepresented I'll have to get another thread that I think will mostly contain comments that can fufill what's missing.
+The posts I gathered were from the following r/ariheads subreddit threads: *"Petal is rly sad"*, *"Petal is her best work"*, and *"Your honest opinion on petal"*. If a label is underrepresented I'll have to get another thread that I think will mostly contain comments that can fufill what's missing.
 
 ## Evaluation Metrics
 Evaluation for macro F1 or equal labeling treatment, especially if a label ends up underepresented. Evaluation for per-label precision and recall which shows whether the agent misses a label category or overuses one. Evaluation for label accuracy, and when a label is ambiguous, if it highlights that uncertainty alongside still putting it under the label it decides is best fit. Also for comment ambiguity handling, evaluation for choosing said best fit label, its explanation, if it includes an uncertainty disclaimer if warranted, and if it avoids hallucinating non explicity stated meaning. Finally there should be consistency evaluation by giving the agent the same comment with small variations to see if it responds the same everytime and evaluation of its explanation quality, do the explanations make sense with the label chosen.
