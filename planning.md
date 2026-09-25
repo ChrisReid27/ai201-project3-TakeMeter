@@ -38,6 +38,16 @@ The `approval` label will be for comments that are praising, complimenting, and 
 
 I asked Copilot about my labels and for potentially more sufficient labeling ideas. Like I thought, it told me that `descriptive`, `approval`, and `critical` have a lot of overlap. It suggested `Personal Response`, `Interpretation & Analysis`, `Positive Evaluation`, and `Mixed to Negative Evaluation`. I agree with these suggestions since they allow for more comments to be less ambiguous even if they still have some overlap.
 
+I have four new labels: Personal Response, Interpretation & Analysis, Positive Evaluation, and Mixed to Negative Evaluation.
+
+The `Personal Response` label will denote comments that focus primarily on the user's own emotional reaction, lived experience, relationship to the music, or listening habits. This includes relating the album to personal hardship, describing how it affected them, and sharing anecdotes such as listening to it during a commute or seeing it performed live.
+
+The `Interpretation & Analysis` label will denote comments that explain, describe, or interpret the album beyond simply stating whether the user likes it. This includes discussing themes, lyrics, specific songs, production, vocal choices, influences, artistic intent, the artist's relationship with the public, and comparisons with other albums or artists.
+
+The `Positive Evaluation` label will denote comments that express an overall favorable judgment of the album, its songs, or its artistry. This includes praise, enjoyment, appreciation, enthusiastic recommendations, claims that the album is among the artist's best, and positive comments that contain minor reservations but remain clearly approving overall.
+
+The `Mixed to Negative Evaluation` label will denote comments that express a substantially qualified, unfavorable, or disappointed judgment of the album. This includes dislike, underwhelming reactions, low rankings, skips, comparisons that place the album below other work, and specific criticism of its lyrics, vocals, production, structure, or replay value. Comments with both praise and criticism belong here when the criticism is substantial or is the dominant overall assessment.
+
 ## Hard Edge Cases
 Posts that contain both positive and negative elements will usually be ambiguous. That is why the new 4th label is mixed-negative together, still some comments might be really positive about the album and talk about its pros more than its cons. When annotating, before putting those type of postive leaning comments in the mixed-negative label group, I'd have to see if the ratio between positive and negative feelings expressed in the comments justifies its position.
 
