@@ -58,7 +58,8 @@ Per-class metrics (baseline):
 - Support: 43
 
 **Findings/Hypothesis**
-Personal response has high recall and low precision. Positive Evaluation and Interpretation &
+
+Personal Response has high recall and low precision. Positive Evaluation and Interpretation &
 Analysis both have low recall. Mixed to Negative Evaluation has a great f1-score and is the most
 on track of the four labels.
 
