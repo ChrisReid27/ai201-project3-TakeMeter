@@ -33,7 +33,7 @@ Per-class metrics (baseline):
 - Precision: 1.00
 - Recall: 0.80
 - f1-score: 0.89
-- Support: 16
+- Support: 10
 
 
 **Accuracy**
