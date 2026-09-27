@@ -3,23 +3,23 @@
 
 ## Baseline Results
 
-🎯 Baseline accuracy: 0.581 (evaluated on 42/43 parseable responses)
+🎯 Baseline accuracy: 0.581 (evaluated on 40/43 parseable responses)
 
 Per-class metrics (baseline):
 
 **Personal Response**
 
-- Precision: 0.36
+- Precision: 0.38
 - Recall: 1.00
-- f1-score: 0.53
+- f1-score: 0.55
 - Support: 8
 
 **Interpretation & Analysis**
 
 - Precision: 0.75
-- Recall: 0.38
-- f1-score: 0.50
-- Support: 8
+- Recall: 0.43
+- f1-score: 0.55
+- Support: 7
 
 **Positive Evaluation**
 
@@ -31,9 +31,9 @@ Per-class metrics (baseline):
 **Mixed to Negative Evaluation**
 
 - Precision: 1.00
-- Recall: 0.80
-- f1-score: 0.89
-- Support: 10
+- Recall: 0.78
+- f1-score: 0.88
+- Support: 9
 
 
 **Accuracy**
@@ -41,21 +41,21 @@ Per-class metrics (baseline):
 - Precision:
 - Recall:
 - f1-score: 0.60
-- Support: 42
+- Support: 40
 
 **Macro Avg**
 
 - Precision: 0.72
-- Recall: 0.64
-- f1-score: 0.61
-- Support: 42
+- Recall: 0.65
+- f1-score: 0.62
+- Support: 40
 
 **Weighted Avg**
 
-- Precision: 0.74
+- Precision: 0.73
 - Recall: 0.60
 - f1-score: 0.60
-- Support: 42
+- Support: 40
 
 **Findings/Hypothesis**
 
