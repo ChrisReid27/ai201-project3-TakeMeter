@@ -228,7 +228,7 @@ Rows are the true label, columns are what the model predicted. Diagonal cells (b
 | Positive Evaluation (PE) | 0 | 1 | 15 | 0 |
 | Mixed to Negative Evaluation (MNE) | 0 | 2 | 3 | 5 |
 
-**Wrong Prediction Analysis**
+**Wrong Prediction Analysis (Fine-tune model)**
 
 - Example 1
 
@@ -236,17 +236,23 @@ Text:      I think it’s her worst album
 True:      Mixed to Negative Evaluation
 Predicted: Positive Evaluation  (confidence: 0.37)
 
+This is a Mixed to Negative Evaluation → Positive Evaluation error, part of the model's broader tendency to predict Positive Evaluation. The short, unambiguous criticism is not mainly a labeling problem; the training data needs more concise negative examples and stronger emphasis that phrases such as "I think" do not indicate approval.
+
 - Example 2
 
 Text:      Yeah. I feel like I understand her. This album has definitely moved me to tears, in the context of her life, and in the context of my own life. Im pretty sure thats hella parasocial tho.
 True:      Personal Response
 Predicted: Positive Evaluation  (confidence: 0.29)
 
+This is the most common confusion in the matrix, with Personal Response being predicted as Positive Evaluation eight times. The comment centers on the speaker's emotional and personal reaction, but its positive emotional language overlaps with evaluation, so more varied Personal Response examples involving intense or positive feelings would help clarify that boundary.
+
 - Example 3
 
 Text:      I do think it was slightly rushed in a way where if she would’ve maybe thought it out a little longer it could’ve been better. But it being put out so fast was because she needed to make it so it feel...
 True:      Mixed to Negative Evaluation
 Predicted: Interpretation & Analysis  (confidence: 0.27)
+
+This Mixed to Negative Evaluation → Interpretation & Analysis error reflects a boundary where criticism is expressed through an explanation of the album's rushed production. The label is reasonably consistent because the overall judgment is that the album could have been better, but the model needs more examples showing that analytical language can still support a negative evaluation.
 
  **Sample Classifications**
 
