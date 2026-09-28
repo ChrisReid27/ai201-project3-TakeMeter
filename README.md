@@ -155,22 +155,6 @@ Per-class metrics (baseline):
 - f1-score: 0.60
 - Support: 40
 
-🎯 Baseline accuracy: 0.600  (evaluated on 40/43 parseable responses)
-
-Per-class metrics (baseline):
-                              precision    recall  f1-score   support
-
-           Personal Response       0.38      1.00      0.55         8
-   Interpretation & Analysis       0.75      0.43      0.55         7
-         Positive Evaluation       0.75      0.38      0.50        16
-Mixed to Negative Evaluation       1.00      0.78      0.88         9
-
-                    accuracy                           0.60        40
-                   macro avg       0.72      0.65      0.62        40
-                weighted avg       0.73      0.60      0.60        40
-
-
-
 **Baseline Findings/Hypothesis**
 
 Personal Response has high recall and low precision. Positive Evaluation and Interpretation & Analysis both have low recall. Mixed to Negative Evaluation has a great f1-score and is the most on track of the four labels.
@@ -179,23 +163,75 @@ Personal Response has high recall and low precision. Positive Evaluation and Int
 
 **Fine-tuned Results (Per Class metrics)**
 
- Running inference on test set...
+🎯 Baseline accuracy: 0.488
 
-🎯 Fine-tuned model accuracy: 0.488
+Per-class metrics (baseline):
 
-Per-class metrics (fine-tuned model):
-                              precision    recall  f1-score   support
+**Personal Response**
 
-           Personal Response       0.00      0.00      0.00         9
-   Interpretation & Analysis       0.25      0.12      0.17         8
-         Positive Evaluation       0.48      0.94      0.64        16
-Mixed to Negative Evaluation       0.71      0.50      0.59        10
+- Precision: 0
+- Recall: 0
+- f1-score: 0
+- Support: 9
 
-                    accuracy                           0.49        43
-                   macro avg       0.36      0.39      0.35        43
-                weighted avg       0.39      0.49      0.41        43
+**Interpretation & Analysis**
+
+- Precision: 0.25
+- Recall: 0.12
+- f1-score: 0.17
+- Support: 8
+
+**Positive Evaluation**
+
+- Precision: 0.48
+- Recall: 0.94
+- f1-score: 0.64
+- Support: 16
+
+**Mixed to Negative Evaluation**
+
+- Precision: 0.71
+- Recall: 0.50
+- f1-score: 0.59
+- Support: 10
 
 
+**Accuracy**
+
+- Precision:
+- Recall:
+- f1-score: 0.49
+- Support: 43
+
+**Macro Avg**
+
+- Precision: 0.36
+- Recall: 0.39
+- f1-score: 0.35
+- Support: 43
+
+**Weighted Avg**
+
+- Precision: 0.39
+- Recall: 0.49
+- f1-score: 0.41
+- Support: 43
+
+**Confusion Matrix (Fine-Tuned Model, Test Set)**
+
+Rows are the true label, columns are what the model predicted. Diagonal cells (bold) are correct predictions.
+
+| True (down) / Predicted (across) | PR | IA | PE | MNE | Total (support) |
+|---|---|---|---|---|---|
+| Personal Response (PR) | **0** | 0 | 8 | 1 | 9 |
+| Interpretation & Analysis (IA) | 1 | **1** | 5 | 1 | 8 |
+| Positive Evaluation (PE) | 0 | 1 | **15** | 0 | 16 |
+| Mixed to Negative Evaluation (MNE) | 0 | 2 | 3 | **5** | 10 |
+| **Total predicted** | 1 | 4 | 31 | 7 | 43 |
+
+Correct predictions: 0 + 1 + 15 + 5 = 21 out of 43 = 0.488 accuracy.
+
+The bottom row is the important part. The model predicted Positive Evaluation for **31 of the 43** test comments, even though only 16 of them actually are Positive Evaluation. It predicted Personal Response exactly once and got it wrong, which is why PR has a precision, recall, and f1-score of 0. Even after raising epochs to 5 and learning rate to 3e-5, the model still mostly collapsed onto the largest class instead of learning to separate the four labels.
 
 **Wrong Prediction Analysis**
 
