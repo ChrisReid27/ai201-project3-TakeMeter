@@ -221,17 +221,12 @@ Per-class metrics (baseline):
 
 Rows are the true label, columns are what the model predicted. Diagonal cells (bold) are correct predictions.
 
-| True (down) / Predicted (across) | PR | IA | PE | MNE | Total (support) |
-|---|---|---|---|---|---|
-| Personal Response (PR) | **0** | 0 | 8 | 1 | 9 |
-| Interpretation & Analysis (IA) | 1 | **1** | 5 | 1 | 8 |
-| Positive Evaluation (PE) | 0 | 1 | **15** | 0 | 16 |
-| Mixed to Negative Evaluation (MNE) | 0 | 2 | 3 | **5** | 10 |
-| **Total predicted** | 1 | 4 | 31 | 7 | 43 |
-
-Correct predictions: 0 + 1 + 15 + 5 = 21 out of 43 = 0.488 accuracy.
-
-The bottom row is the important part. The model predicted Positive Evaluation for **31 of the 43** test comments, even though only 16 of them actually are Positive Evaluation. It predicted Personal Response exactly once and got it wrong, which is why PR has a precision, recall, and f1-score of 0. Even after raising epochs to 5 and learning rate to 3e-5, the model still mostly collapsed onto the largest class instead of learning to separate the four labels.
+| True (down) / Predicted (across) | PR | IA | PE | MNE |
+|---|---|---|---|---|
+| Personal Response (PR) | 0 | 0 | 8 | 1 |
+| Interpretation & Analysis (IA) | 1 | 1 | 5 | 1 |
+| Positive Evaluation (PE) | 0 | 1 | 15 | 0 |
+| Mixed to Negative Evaluation (MNE) | 0 | 2 | 3 | 5 |
 
 **Wrong Prediction Analysis**
 
