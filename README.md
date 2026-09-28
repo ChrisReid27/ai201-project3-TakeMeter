@@ -7,6 +7,8 @@ The community I chose was **r/ariheads** from Reddit, and specifically chose thr
 ## Label Taxonomy
 I have four labels: Personal Response, Interpretation & Analysis, Positive Evaluation, and lastly Mixed to Negative Evaluation
 
+(At other points in this README the labesls will be adressed as PR, IA, PE, and MNE respectively.)
+
 The `Personal Response` label will denote comments that focus primarily on the user's own emotional reaction, lived experience, relationship to the music, or listening habits. This includes relating the album to personal hardship, describing how it affected them, and sharing anecdotes such as listening to it during a commute or seeing it performed live.
 
 Example: "same, i'm going through a ton of shit right now no normal person should be expected to shoulder. yet, we are. and here's petal to listen to"
@@ -16,6 +18,12 @@ The `Interpretation & Analysis` label will denote comments that explain, describ
 Example: "It’s sad, but hopeful, and there’s a kind of enlightenment in it—a sense of self-realization. It definitely sounds like she’s been through a lot, but to me it also feels like someone setting boundaries and finding her footing again. There’s a real resilience to it. I enjoy and appreciate the album for that."
 
 The `Positive Evaluation` label will denote comments that express an overall favorable judgment of the album, its songs, or its artistry. This includes praise, enjoyment, appreciation, enthusiastic recommendations, claims that the album is among the artist's best, and positive comments that contain minor reservations but remain clearly approving overall.
+
+Example: "I absolutely love this album 🥺 it hurts to see people shitting on it"
+
+The `Mixed to Negative Evaluation` label will denote comments that express a substantially qualified, unfavorable, or disappointed judgment of the album. This includes dislike, underwhelming reactions, low rankings, skips, comparisons that place the album below other work, and specific criticism of its lyrics, vocals, production, structure, or replay value. Comments with both praise and criticism belong here when the criticism is substantial or is the dominant overall assessment.
+
+Example: "Petal on its own is sadly one of my least favourite projects of her BUT the live recordings gave it the spark that it was missing. Even to this day when I try to play stay or like i do in their studio recordings, I end up feeling super underwhelmed, whereas I absolutely adore them in the live album. Had she decided to (re)record it with the added grit, power and the additional adlibs and melodic changes, I think it could have been in my top 5 projects of her."
 
 ## Data Collection
 The posts I gathered were from the following r/ariheads subreddit threads: *"Petal is rly sad"*, *"Petal is her best work"*, and *"Your honest opinion on petal"*. I had my csv formatting cleaned up with the help of Codex but the labeling of all 286 cooments were done manually by myself. Personal Response had the most with `108` comments. Mixed to Negative Evaluation was the second highest with `71` comments. Positive Evaluation had `55` and Interpretation & Analysis had `52`.
@@ -42,8 +50,50 @@ My decision: Positive Evaluation
 
 ## Fine-tuning Approach
 
+- **Base Model Setup:** Baseline model was done using Sections 1 and 5 of the Colab notebook. Label mappings were defined for each of my labels: 0, 1, 2, 3 for Personal Response, Interpretation & Analysis, Positive Evaluation, Mixed to Negative Evaluation respectively. My Takemeter data - cleaned.csv was then uploaded and my dataset was validated. In section 5, my baseline classifier (Groq) is ran for zero shot baseline using openai/gpt-oss-120b, which was changed from the deprecated meta-llama mode. In response, I had to increase tokens to 300 from 20 for the replacement. My system prompt was 2028 characters and is under the Baseline Description and Results section of this README. Only 3 out of 43 responses ended up not being parsed.
+
+- **Training Setup:** In Section 2 of the Colab notebook, my data was split into train / validation / test sets (70%/15%/15% resepectively). Training count was 200 out of 286. Validation and Testing were both 43 out of 286. Training label distribution for PR, IA, PE, and MNE was 38, 36, 76 and 50 respectively. For test label distribution it was 9, 8, 16 and 10 respecteively. Next the tokenizer was loaded and splits were tokenized.
+
+- **Hyperparameter decision(s):** I changed epochs from 3 to 5 and learning rate from 2e-5 to 3e-5 becuase when it was set to those defaults, the fine-tuning model was putting every single comment under positive evaluation. Changing these valuses gave a more expected variety.
 
 ## Baseline Description and Results
+
+**System Prompt**
+
+You are classifying reddit comments about the Ariana Grande album titled 'Petal'
+from the three threads titled 'Petal is rly sad', 'Petal is her best work', and
+'Your honest opinions on petal' from r/ariheads subreddit.
+Assign each post to exactly one of the following label categories:
+
+Personal Response: Comments that focus primarily on the user's own emotional reaction, lived experience, relationship to the music, or listening habits.
+Example: "same, i'm going through a ton of shit right now no normal person should be expected to shoulder. yet, we are. and here's petal to listen to"
+
+Interpretation & Analysis: Comment that explain, describe, or interpret the album beyond simply stating whether or not the user likes it.
+Example: "It’s sad, but hopeful, and there’s a kind of enlightenment in it—a sense of self-realization. It definitely sounds like she’s
+been through a lot, but to me it also feels like someone setting boundaries and finding her footing again. There’s a real resilience to it. I
+enjoy and appreciate the album for that."
+
+Positive Evaluation: Comments that express overall favorable judgement of the album, its songs, or its artistry.
+Example: "I absolutely love this album 🥺 it hurts to see people shitting on it"
+
+Mixed to Negative Evaluation: Comments that express a substantially qualified, unfavorable, or disappointed judgement of the album.
+Example: "Petal on its own is sadly one of my least favourite projects of her BUT the live recordings gave it the spark that it was missing.
+Even to this day when I try to play stay or like i do in their studio recordings, I end up feeling super underwhelmed, whereas I absolutely
+adore them in the live album. Had she decided to (re)record it with the added grit, power and the additional adlibs and melodic changes, I
+think it could have been in my top 5 projects of her."
+
+Respond with ONLY the label name.
+Do not explain your reasoning.
+
+Valid labels:
+Personal Response
+Interpretation & Analysis
+Positive Evaluation
+Mixed to Negative Evaluation
+
+After running the function classify_with-groq(text), as stated earlier, 40 out of 43 responses were able to be parsed. (There was one time where it parsed all 43 but runtime disconnection made me lose that data.)
+
+**Baseline Results**
 
 🎯 Baseline accuracy: 0.581 (evaluated on 40/43 parseable responses)
 
@@ -101,11 +151,9 @@ Per-class metrics (baseline):
 
 **Findings/Hypothesis**
 
-Personal Response has high recall and low precision. Positive Evaluation and Interpretation &
-Analysis both have low recall. Mixed to Negative Evaluation has a great f1-score and is the most
-on track of the four labels.
+Personal Response has high recall and low precision. Positive Evaluation and Interpretation & Analysis both have low recall. Mixed to Negative Evaluation has a great f1-score and is the most on track of the four labels.
 
-Hypothesis: Personal Response is high recall and low precision because alot of other comments have phrases like "I love" or "I think" in them which is leading the model to get all the ones its supposed to but also take comments that belong in other label groups because those phrases are in them. Mixed to Negative Evaluation is good because dislike language is easy to separate from the rest. Positive Evaluation and Interpretation & Analysis are both suffering from low recall because Personal Response is probably leeching from them for the reasons stated earlier. A lot of the comments from these two labels do include prefaces or ending lines with phrases like "I like" or "I love" but the comments full context belong mostly in Positive or Analysis.
+**Hypothesis:** Personal Response is high recall and low precision because alot of other comments have phrases like "I love" or "I think" in them which is leading the model to get all the ones its supposed to but also take comments that belong in other label groups because those phrases are in them. Mixed to Negative Evaluation is good because dislike language is easy to separate from the rest. Positive Evaluation and Interpretation & Analysis are both suffering from low recall because Personal Response is probably leeching from them for the reasons stated earlier. A lot of the comments from these two labels do include prefaces or ending lines with phrases like "I like" or "I love" but the comments full context belong mostly in Positive or Analysis.
 
 ## Evaluation Report
 
