@@ -54,7 +54,7 @@ My decision: Positive Evaluation
 
 - **Training Setup:** In Section 2 of the Colab notebook, my data was split into train / validation / test sets (70%/15%/15% resepectively). Training count was 200 out of 286. Validation and Testing were both 43 out of 286. Training label distribution for PR, IA, PE, and MNE was 38, 36, 76 and 50 respectively. For test label distribution it was 9, 8, 16 and 10 respecteively. Next the tokenizer was loaded and splits were tokenized.
 
-- **Hyperparameter decision(s):** I changed epochs from 3 to 5 and learning rate from 2e-5 to 3e-5 becuase when it was set to those defaults, the fine-tuning model was putting every single comment under positive evaluation. Changing these valuses gave a more expected variety.
+- **Hyperparameter decision(s):** I changed epochs from 3 to 5 and learning rate from 2e-5 to 3e-5 becuase when it was set to those defaults, the fine-tuning model was putting every single comment under positive evaluation. Changing these valuses gave a more expected variety, though as expressed later, the collapse of weights still led to a heavy skew within the model towards Positive Evaluation.
 
 ## Baseline Description
 
@@ -217,21 +217,8 @@ Per-class metrics (baseline):
 - f1-score: 0.41
 - Support: 43
 
-**Confusion Matrix (Fine-Tuned Model, Test Set)**
+**Confusion Matrix .md**
 
-Rows are the true label, columns are what the model predicted. Diagonal cells (bold) are correct predictions.
-
-| True (down) / Predicted (across) | PR | IA | PE | MNE | Total (support) |
-|---|---|---|---|---|---|
-| Personal Response (PR) | **0** | 0 | 8 | 1 | 9 |
-| Interpretation & Analysis (IA) | 1 | **1** | 5 | 1 | 8 |
-| Positive Evaluation (PE) | 0 | 1 | **15** | 0 | 16 |
-| Mixed to Negative Evaluation (MNE) | 0 | 2 | 3 | **5** | 10 |
-| **Total predicted** | 1 | 4 | 31 | 7 | 43 |
-
-Correct predictions: 0 + 1 + 15 + 5 = 21 out of 43 = 0.488 accuracy.
-
-The bottom row is the important part. The model predicted Positive Evaluation for **31 of the 43** test comments, even though only 16 of them actually are Positive Evaluation. It predicted Personal Response exactly once and got it wrong, which is why PR has a precision, recall, and f1-score of 0. Even after raising epochs to 5 and learning rate to 3e-5, the model still mostly collapsed onto the largest class instead of learning to separate the four labels.
 
 **Wrong Prediction Analysis**
 
