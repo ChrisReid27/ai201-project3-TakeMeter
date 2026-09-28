@@ -264,7 +264,7 @@ This Mixed to Negative Evaluation getting mistaken for Interpretation & Analysis
 | for me personally, it's way deeper than the pain of living in the end times 💀 but yeah, i'... | Personal Response | Positive Evaluation | 0.30 | no |
 | I hope things get better soon ❤️‍🩹 | Personal Response | Positive Evaluation | 0.43 | no |
 
-The first example, "I think I’m feeling this way too. Im such a huge longtime fan, I caNNOT stop listening to this album and I already listen to her a lot lol 😭🫶🏼. She captured so much of herself! Like she poured so much of her personality, her interests, and her talent!! It comes through so strongly in this album, it’s PEAK !!!! You can tell this is music she really wanted to make and is soooo passionate about it" is a model getting the prediction right. It is obviously Positive Evaluation and the model correctly denoted this. However, the model skews heavily towards Positive Evaluation anyway, it correctly denotes all comments that belong to it, but also steals from other ctaegories probably because they collapsed due to training data for the others not being specific eneough.
+The first example, "I think I’m feeling this way too. Im such a huge longtime fan, I caNNOT stop listening to this album and I already listen to her a lot lol 😭🫶🏼. She captured so much of herself! Like she poured so much of her personality, her interests, and her talent!! It comes through so strongly in this album, it’s PEAK !!!! You can tell this is music she really wanted to make and is soooo passionate about it" is the model getting the prediction right. It is obviously Positive Evaluation and the model correctly denoted this. However, the model skews heavily towards Positive Evaluation anyway, it correctly denotes all comments that belong to it, but also steals from other ctaegories probably because they collapsed due to training data for the others not being specific eneough.
 
 **Results Comparison**
 
@@ -276,6 +276,8 @@ The first example, "I think I’m feeling this way too. Im such a huge longtime 
 Fine-tuning regression: 0.112
 
 ## Reflection
+Overall, with both the baseline model and especially the fine-tune model, there were heavy skews. For baseline, it was towards Personal Response, but in the fine-tune model, it was towards Positive Evaluation. The overarching issue I see is with my system prompt, which I did try to change. The activity asked for one sentence explaining each label and I know why, its to not give the label too much so it doesn't start overthinking. However I feel like that limitation puts a lot of stress on the examples provided alongside the definitions. I did expand past one sentence just to see and I included my whole definitions for each label that is seen in the Label Taxonomy section earlier and in my planning.md (as in both sentences for each instead of just the first sentence for each). The addition of the "This includes.." parts of the definitions in my systemprompt made my parsing worse (as in way above 10% of my 43 response could not be parsed) so I took them back out. The fact that my fine-tune model accuarcy was worse than my baseline model and baseline was already only at 60%, shows that training data system prompt needed more.
+
 
 ## Spec Reflection
 
