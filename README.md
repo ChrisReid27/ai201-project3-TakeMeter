@@ -219,6 +219,14 @@ Per-class metrics (baseline):
 
 **Confusion Matrix .md**
 
+Rows are the true label, columns are what the model predicted. Diagonal cells (bold) are correct predictions.
+
+| True (down) / Predicted (across) | PR | IA | PE | MNE |
+|---|---|---|---|---|
+| Personal Response (PR) | 0 | 0 | 8 | 1 |
+| Interpretation & Analysis (IA) | 1 | 1 | 5 | 1 |
+| Positive Evaluation (PE) | 0 | 1 | 15 | 0 |
+| Mixed to Negative Evaluation (MNE) | 0 | 2 | 3 | 5 |
 
 **Wrong Prediction Analysis**
 
