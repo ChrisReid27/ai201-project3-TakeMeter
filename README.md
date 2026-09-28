@@ -56,7 +56,7 @@ My decision: Positive Evaluation
 
 - **Hyperparameter decision(s):** I changed epochs from 3 to 5 and learning rate from 2e-5 to 3e-5 becuase when it was set to those defaults, the fine-tuning model was putting every single comment under positive evaluation. Changing these valuses gave a more expected variety.
 
-## Baseline Description and Results
+## Baseline Description
 
 **System Prompt**
 
@@ -93,7 +93,13 @@ Mixed to Negative Evaluation
 
 After running the function classify_with-groq(text), as stated earlier, 40 out of 43 responses were able to be parsed. (There was one time where it parsed all 43 but runtime disconnection made me lose that data.)
 
-**Baseline Results**
+## Evaluation Report
+
+**Accuracy**
+
+Baseline accuracy was 0.6. Fine-tuned accuracy was lower at 0.4884. This means the improvement was actually a regression: -0.1116.
+
+**Baseline Results (Per Class Metrics)**
 
 🎯 Baseline accuracy: 0.581 (evaluated on 40/43 parseable responses)
 
@@ -149,13 +155,47 @@ Per-class metrics (baseline):
 - f1-score: 0.60
 - Support: 40
 
-**Findings/Hypothesis**
+🎯 Baseline accuracy: 0.600  (evaluated on 40/43 parseable responses)
+
+Per-class metrics (baseline):
+                              precision    recall  f1-score   support
+
+           Personal Response       0.38      1.00      0.55         8
+   Interpretation & Analysis       0.75      0.43      0.55         7
+         Positive Evaluation       0.75      0.38      0.50        16
+Mixed to Negative Evaluation       1.00      0.78      0.88         9
+
+                    accuracy                           0.60        40
+                   macro avg       0.72      0.65      0.62        40
+                weighted avg       0.73      0.60      0.60        40
+
+
+
+**Baseline Findings/Hypothesis**
 
 Personal Response has high recall and low precision. Positive Evaluation and Interpretation & Analysis both have low recall. Mixed to Negative Evaluation has a great f1-score and is the most on track of the four labels.
 
 **Hypothesis:** Personal Response is high recall and low precision because alot of other comments have phrases like "I love" or "I think" in them which is leading the model to get all the ones its supposed to but also take comments that belong in other label groups because those phrases are in them. Mixed to Negative Evaluation is good because dislike language is easy to separate from the rest. Positive Evaluation and Interpretation & Analysis are both suffering from low recall because Personal Response is probably leeching from them for the reasons stated earlier. A lot of the comments from these two labels do include prefaces or ending lines with phrases like "I like" or "I love" but the comments full context belong mostly in Positive or Analysis.
 
-## Evaluation Report
+**Fine-tuned Results (Per Class metrics)**
+
+ Running inference on test set...
+
+🎯 Fine-tuned model accuracy: 0.488
+
+Per-class metrics (fine-tuned model):
+                              precision    recall  f1-score   support
+
+           Personal Response       0.00      0.00      0.00         9
+   Interpretation & Analysis       0.25      0.12      0.17         8
+         Positive Evaluation       0.48      0.94      0.64        16
+Mixed to Negative Evaluation       0.71      0.50      0.59        10
+
+                    accuracy                           0.49        43
+                   macro avg       0.36      0.39      0.35        43
+                weighted avg       0.39      0.49      0.41        43
+
+
 
 **Wrong Prediction Analysis**
 
@@ -186,8 +226,6 @@ Predicted: Interpretation & Analysis  (confidence: 0.27)
 | I do think occasionally the lyrics lean into cliche or stuff we heard from her before. I t... | Mixed to Negative Evaluation | Mixed to Negative Evaluation | 0.31 | yes |
 | for me personally, it's way deeper than the pain of living in the end times 💀 but yeah, i'... | Personal Response | Positive Evaluation | 0.30 | no |
 | I hope things get better soon ❤️‍🩹 | Personal Response | Positive Evaluation | 0.43 | no |
-
-
 
 **Results Comparison**
 
