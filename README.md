@@ -2,12 +2,46 @@
 
 
 ## Community Choice
+The community I chose was **r/ariheads** from Reddit, and specifically chose threads discussing Ariana Grande's latest album, titled *Petal*. I chose this community because I know that *Petal* was devisive among her fanbase (which I'm a part of) and that there would be varied opinions and types of comments surrounding the album.
 
 ## Label Taxonomy
+I have four labels: Personal Response, Interpretation & Analysis, Positive Evaluation, and lastly Mixed to Negative Evaluation
+
+The `Personal Response` label will denote comments that focus primarily on the user's own emotional reaction, lived experience, relationship to the music, or listening habits. This includes relating the album to personal hardship, describing how it affected them, and sharing anecdotes such as listening to it during a commute or seeing it performed live.
+
+Example: "same, i'm going through a ton of shit right now no normal person should be expected to shoulder. yet, we are. and here's petal to listen to"
+
+The `Interpretation & Analysis` label will denote comments that explain, describe, or interpret the album beyond simply stating whether the user likes it. This includes discussing themes, lyrics, specific songs, production, vocal choices, influences, artistic intent, the artist's relationship with the public, and comparisons with other albums or artists.
+
+Example: "It’s sad, but hopeful, and there’s a kind of enlightenment in it—a sense of self-realization. It definitely sounds like she’s been through a lot, but to me it also feels like someone setting boundaries and finding her footing again. There’s a real resilience to it. I enjoy and appreciate the album for that."
+
+The `Positive Evaluation` label will denote comments that express an overall favorable judgment of the album, its songs, or its artistry. This includes praise, enjoyment, appreciation, enthusiastic recommendations, claims that the album is among the artist's best, and positive comments that contain minor reservations but remain clearly approving overall.
 
 ## Data Collection
+The posts I gathered were from the following r/ariheads subreddit threads: *"Petal is rly sad"*, *"Petal is her best work"*, and *"Your honest opinion on petal"*. I had my csv formatting cleaned up with the help of Codex but the labeling of all 286 cooments were done manually by myself. Personal Response had the most with `108` comments. Mixed to Negative Evaluation was the second highest with `71` comments. Positive Evaluation had `55` and Interpretation & Analysis had `52`.
+
+**Difficult to Label Examples w/ My Final Decisions**
+
+- Example 1 (Between Personal Response and Interpretation & Analysis)
+
+"Honestly I listen to it because in a way I relate to the pain but yeah it’s a dark album compared to her last"
+
+My decision: Personal Response
+
+- Example 2 (Between Interpretation & Analysis and Positive Evaluation)
+
+"I’ve been a casual listener for a long time. Always respected her vocal and comedic abilities, featured her in some playlists, but never made an effort to listen to her albums start to finish for whatever reason. Eternal Sunshine and Petal I listened to start to finish multiple times and I watched the music videos. They feel much more emotionally raw, grounded, and cohesive. I really like the direction she’s taken in her music lately and I respect that artistically"
+
+My decision: Positive Evaluation
+
+- Example 3 (Between Personal Response and Positive Evaluation)
+
+"I listen to it every morning while I commute to work. I like the setting and the vibes overall. I also like how in a different pov the whole album can be about her toxic fans and the relationship of Ariana with them. I love most songs especially from big feelings to bunny hop. Interlude is a fucking masterpiece once again. Oh well and nowhere nobody are a skip for me (I still listen to them though). Overall it’s my 3rd fav with the ranking going 1. ES 2. Positions 3. Petal, but I’m sure it will go up at some point. Also the fact that it “doesn’t go well like the other albums”, kinda makes me like it more as it feels more personal, the less fuzz the better (idk if it makes sense, I’m not being derogatory)"
+
+My decision: Positive Evaluation
 
 ## Fine-tuning Approach
+
 
 ## Baseline Description and Results
 
@@ -75,27 +109,27 @@ Hypothesis: Personal Response is high recall and low precision because alot of o
 
 ## Evaluation Report
 
-- Wrong Prediction Analysis
+**Wrong Prediction Analysis**
 
-**Example 1**
+- Example 1
 
 Text:      I think it’s her worst album
 True:      Mixed to Negative Evaluation
 Predicted: Positive Evaluation  (confidence: 0.37)
 
-**Example 2**
+- Example 2
 
 Text:      Yeah. I feel like I understand her. This album has definitely moved me to tears, in the context of her life, and in the context of my own life. Im pretty sure thats hella parasocial tho.
 True:      Personal Response
 Predicted: Positive Evaluation  (confidence: 0.29)
 
-**Example 3**
+- Example 3
 
 Text:      I do think it was slightly rushed in a way where if she would’ve maybe thought it out a little longer it could’ve been better. But it being put out so fast was because she needed to make it so it feel...
 True:      Mixed to Negative Evaluation
 Predicted: Interpretation & Analysis  (confidence: 0.27)
 
-- Sample Classifications
+ **Sample Classifications**
 
 | Post (truncated) | True label | Predicted | Confidence | Correct? |
 |---|---|---|---|---|
@@ -105,21 +139,19 @@ Predicted: Interpretation & Analysis  (confidence: 0.27)
 | for me personally, it's way deeper than the pain of living in the end times 💀 but yeah, i'... | Personal Response | Positive Evaluation | 0.30 | no |
 | I hope things get better soon ❤️‍🩹 | Personal Response | Positive Evaluation | 0.43 | no |
 
-Paste this table into your README under 'Sample Classifications'.
-For at least one correct row, add a sentence on why that prediction is reasonable.
 
 
-- Results Comparison
+**Results Comparison**
 
-==================================================
-RESULTS COMPARISON
-==================================================
-Model                               Accuracy
----------------------------------------------
-Zero-shot baseline (Groq)              0.600
-Fine-tuned DistilBERT                  0.488
----------------------------------------------
+| Model | Accuracy |
+|---|---|
+| Zero-shot baseline (Groq) | 0.600 |
+| Fine-tuned DistilBERT | 0.488 |
 
 Fine-tuning regression: 0.112
 
-Use these numbers in your README evaluation report.
+## Reflection
+
+## Spec Reflection
+
+## AI Usage
