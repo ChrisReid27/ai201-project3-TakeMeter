@@ -1,0 +1,13 @@
+{
+  "baseline_accuracy": 0.6,
+  "finetuned_accuracy": 0.4884,
+  "improvement": -0.1116,
+  "test_set_size": 43,
+  "label_map": {
+    "Personal Response": 0,
+    "Interpretation & Analysis": 1,
+    "Positive Evaluation": 2,
+    "Mixed to Negative Evaluation": 3
+  },
+  "model": "distilbert-base-uncased"
+}
