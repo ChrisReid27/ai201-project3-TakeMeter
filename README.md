@@ -236,7 +236,7 @@ Text:      I think it’s her worst album
 True:      Mixed to Negative Evaluation
 Predicted: Positive Evaluation  (confidence: 0.37)
 
-This is a Mixed to Negative Evaluation → Positive Evaluation error, part of the model's broader tendency to predict Positive Evaluation. The short, unambiguous criticism is not mainly a labeling problem; the training data needs more concise negative examples and stronger emphasis that phrases such as "I think" do not indicate approval.
+This is a Mixed to Negative Evaluation mistaken for Positive Evaluation, part of the model's broader tendency to predict Positive Evaluation over pretty much everything. This is a short, unambiguous criticism so it's definitely not a labeling problem. My training data needed more concise negative examples and stronger emphasis that phrases such as "I think" do not indicate approval.
 
 - Example 2
 
@@ -244,7 +244,7 @@ Text:      Yeah. I feel like I understand her. This album has definitely moved m
 True:      Personal Response
 Predicted: Positive Evaluation  (confidence: 0.29)
 
-This is the most common confusion in the matrix, with Personal Response being predicted as Positive Evaluation eight times. The comment centers on the speaker's emotional and personal reaction, but its positive emotional language overlaps with evaluation, so more varied Personal Response examples involving intense or positive feelings would help clarify that boundary.
+The model made this mistake the most as reflected in my confusion matrix: Personal Response being predicted as Positive Evaluation eight times. The comment centers on the user's emotional and personal reaction, but its positive emotional language overlaps with evaluation, so maybe a better Personal Response example (or examples) involving intense or positive feelings would help clarify that for the model.
 
 - Example 3
 
@@ -252,7 +252,7 @@ Text:      I do think it was slightly rushed in a way where if she would’ve ma
 True:      Mixed to Negative Evaluation
 Predicted: Interpretation & Analysis  (confidence: 0.27)
 
-This Mixed to Negative Evaluation → Interpretation & Analysis error reflects a boundary where criticism is expressed through an explanation of the album's rushed production. The label is reasonably consistent because the overall judgment is that the album could have been better, but the model needs more examples showing that analytical language can still support a negative evaluation.
+This Mixed to Negative Evaluation getting mistaken for Interpretation & Analysis error. This reflects a boundary where criticism is expressed through an explanation of the album's rushed production. The label is reasonably consistent because the overall judgment is that the album could have been better, but the model needs more examples showing that analytical language can still support a negative evaluation.
 
  **Sample Classifications**
 
@@ -263,6 +263,8 @@ This Mixed to Negative Evaluation → Interpretation & Analysis error reflects a
 | I do think occasionally the lyrics lean into cliche or stuff we heard from her before. I t... | Mixed to Negative Evaluation | Mixed to Negative Evaluation | 0.31 | yes |
 | for me personally, it's way deeper than the pain of living in the end times 💀 but yeah, i'... | Personal Response | Positive Evaluation | 0.30 | no |
 | I hope things get better soon ❤️‍🩹 | Personal Response | Positive Evaluation | 0.43 | no |
+
+The first example, "I think I’m feeling this way too. Im such a huge longtime fan, I caNNOT stop listening to this album and I already listen to her a lot lol 😭🫶🏼. She captured so much of herself! Like she poured so much of her personality, her interests, and her talent!! It comes through so strongly in this album, it’s PEAK !!!! You can tell this is music she really wanted to make and is soooo passionate about it" is a model getting the prediction right. It is obviously Positive Evaluation and the model correctly denoted this. However, the model skews heavily towards Positive Evaluation anyway, it correctly denotes all comments that belong to it, but also steals from other ctaegories probably because they collapsed due to training data for the others not being specific eneough.
 
 **Results Comparison**
 
