@@ -1,5 +1,8 @@
 # TakeMeter
 
+## Demo
+
+https://drive.google.com/file/d/1R6qvIlec5PGbZ-tjF6Nit3bLNlQVf-RJ/view?usp=sharing
 
 ## Community Choice
 The community I chose was **r/ariheads** from Reddit, and specifically chose threads discussing Ariana Grande's latest album, titled *Petal*. I chose this community because I know that *Petal* was devisive among her fanbase (which I'm a part of) and that there would be varied opinions and types of comments surrounding the album.
